@@ -1,12 +1,8 @@
 /** @jsx jsx */
-import { css, jsx } from '@emotion/react'
-import React, {useContext, useState} from 'react';
-import {WebDispatch} from "../App";
-import {useHistory} from "react-router-dom";
+import { css, jsx } from "@emotion/react";
+import { useHistory } from "react-router-dom";
 
-
-
-const walletStyle =css`
+const walletStyle = css`
   margin-top: 20px;
   display: flex;
   flex-direction: column;
@@ -15,27 +11,26 @@ const walletStyle =css`
   margin-right: auto;
   justify-content: center;
   background-color: white;
-  span{
+  span {
     text-align: center;
   }
-`
+`;
 
-const Wallet = ({handleWeb}) => {
-    const history = useHistory();
-    console.log(history);
-    const {state, dispatch} = useContext(WebDispatch);
-    const onSubmit = async (event)=>{
-        event.preventDefault();
-        await handleWeb();
-        history.push("/market");
-    }
-    return(
-        <div css={walletStyle}>
-            <span>Sign in your wallet</span>
-            <img src="images/metamask.png" alt="metamask"/>
-            <button onClick={onSubmit}>로그인하기</button>
-        </div>
-    )
-}
+const Wallet = ({ handleWeb }) => {
+  const history = useHistory();
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    await handleWeb();
+    history.push("/market");
+  };
+  return (
+    <div css={walletStyle}>
+      <span>Sign in your wallet</span>
+      <img src="images/metamask.png" alt="metamask" />
+      <button onClick={onSubmit}>로그인하기</button>
+    </div>
+  );
+};
 
 export default Wallet;

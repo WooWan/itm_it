@@ -1,5 +1,4 @@
-import React, { useState, useContext, useRef } from "react";
-import { WebDispatch } from "../App";
+import React, { useState, useRef } from "react";
 import AssetAddFormComplete from "./Asset_add_form_complete";
 import styled from "styled-components";
 
@@ -138,7 +137,6 @@ const AssetAddForm = ({
 }) => {
   const [audioBuffer, setAudioBuffer] = useState();
   const [imageBuffer, setImageBuffer] = useState();
-  const { state, dispatch } = useContext(WebDispatch);
 
   const titleRef = useRef();
   const authorRef = useRef();

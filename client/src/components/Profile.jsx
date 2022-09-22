@@ -1,7 +1,5 @@
 import React from "react";
-import AssetAddForm from "./Asset_add_form";
-import { WebDispatch } from "../App";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Asset from "./Asset";
 import Modalbutton from "./ModalButton";
 
@@ -13,7 +11,6 @@ const pinata = pinataSDK(
 
 const Profile = ({ accounts, contract }) => {
   const [myAssets, setMyAssets] = useState({});
-  const { state, dispatch } = useContext(WebDispatch);
 
   useEffect(() => {
     const myAccount = accounts[0];
